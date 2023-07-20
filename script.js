@@ -3,9 +3,9 @@ let email_btn = document.getElementById("email-btn");
 let subject = document.getElementById("email-subject");
 let body = document.getElementById("email-body");
 email_btn.onclick = (e) => {
-    window.location = `mailto:bhavtosh.dudul@gmail.com?subject=${subject.value}&body=${body.value}`;
     subject.value = "";
-    body.value = ""
+    body.value = "";
+    window.location = `mailto:bhavtosh.dudul@gmail.com?subject=${subject.value}&body=${body.value}`;
 }
 
 // ********************TYPING ANIMATIONS***************
