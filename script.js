@@ -1,6 +1,16 @@
+//email button handling
+let email_btn = document.getElementById("email-btn");
+let subject = document.getElementById("email-subject");
+let body = document.getElementById("email-body");
+email_btn.onclick = (e) => {
+    window.location = `mailto:bhavtosh.dudul@gmail.com?subject=${subject.value}&body=${body.value}`;
+    subject.value = "";
+    body.value = ""
+}
+
 // ********************TYPING ANIMATIONS***************
 let typed = new Typed('.typing', {
-    strings: ["Web designer", "programmer", "cricketer"],
+    strings: ["", "Front-End developer", "programmer", "Coder", "learner", ""],
     typeSpeed: 50,
     startDelay: 10,
     BackSpeed: 200,
@@ -13,7 +23,7 @@ let typed = new Typed('.typing', {
 const nav = document.querySelector(".nav");
 const navList = nav.querySelectorAll("li");
 const totalNavlList = navList.length;
-const  allSection = document.querySelectorAll(".section");
+const allSection = document.querySelectorAll(".section");
 const totalSection = allSection.length;
 
 for (let i = 0; i < totalNavlList; i++) {
@@ -35,8 +45,7 @@ for (let i = 0; i < totalNavlList; i++) {
         this.classList.add("active");
         showSection(this);
 
-        if(window.innerWidth <1200)
-        {
+        if (window.innerWidth < 1200) {
             asideSectionTogglerBtn();
         }
     })
@@ -51,22 +60,18 @@ function showSection(element) {
     document.querySelector("#" + target).classList.add("active");
 }
 
-function updateNav(element)
-{
-    for(let i=0;i<totalNavlList;i++)
-    {
+function updateNav(element) {
+    for (let i = 0; i < totalNavlList; i++) {
         navList[i].querySelector("a").classList.remove("active");
         const target = element.getAttribute("href").split("#")[1];
 
-        if(target === navList[i].querySelector("a").getAttribute("href").split("#")[1])
-        {
+        if (target === navList[i].querySelector("a").getAttribute("href").split("#")[1]) {
             navList[i].querySelector("a").classList.add("active");
         }
     }
 }
-document.querySelector(".hire-me").addEventListener("click",function()
-{
-    const sectionIndex=this.getAttribute("data-section-index");
+document.querySelector(".hire-me").addEventListener("click", function () {
+    const sectionIndex = this.getAttribute("data-section-index");
 
     showSection(this);
     updateNav(this);
@@ -76,32 +81,27 @@ document.querySelector(".hire-me").addEventListener("click",function()
 }
 )
 
-const navTogglerBtn=document.querySelector(".nav-toggler");
-const aside=document.querySelector(".aside");
-    navTogglerBtn.addEventListener("click",()=>
-    {
-        asideSectionTogglerBtn();
-    })
+const navTogglerBtn = document.querySelector(".nav-toggler");
+const aside = document.querySelector(".aside");
+navTogglerBtn.addEventListener("click", () => {
+    asideSectionTogglerBtn();
+})
 
-    function asideSectionTogglerBtn()
-    {
-        aside.classList.toggle("open");
-        navTogglerBtn.classList.toggle("open");
+function asideSectionTogglerBtn() {
+    aside.classList.toggle("open");
+    navTogglerBtn.classList.toggle("open");
 
-        for(let i=0;i<totalSection;i++)
-        {
-            allSection[i].classList.toggle("open");
-        }
+    for (let i = 0; i < totalSection; i++) {
+        allSection[i].classList.toggle("open");
     }
+}
 
-    function removeBackSection()
-    {
-         for (let i = 0; i < totalSection; i++) {
-            allSection[i].classList.remove("back-section");
-         }
+function removeBackSection() {
+    for (let i = 0; i < totalSection; i++) {
+        allSection[i].classList.remove("back-section");
     }
-    function addBackSection(num)
-    {
-        allSection[num].classList.add("back-section");
+}
+function addBackSection(num) {
+    allSection[num].classList.add("back-section");
 
-    }
+}
